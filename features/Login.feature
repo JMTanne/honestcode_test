@@ -6,6 +6,6 @@ Feature: Login
 
   Scenario: Login successful
     Given I am on my "Home page"
-    When I use correct credentials
+    When I use "Coucou"
     And I click on "login button"
     Then I am redirected to the "Discover page"
