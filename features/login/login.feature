@@ -3,3 +3,9 @@
 
 Feature: login
   As a Reg user, I want to login on site.
+
+  Scenario: Login successful
+    Given I am on "Home page"
+    When I log with user "coco" and password "Azertyu1"
+    And I click on "login button"
+    Then I'm redirected to "Discover page"
