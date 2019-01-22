@@ -4,8 +4,23 @@
 Feature: Login
   As a Reg user, I want to login on site.
 
+  Background: Scenario created at 1/22/2019:14:04:27.526
+    Given user "blibloblu" exists with password "to0secUr3"
+
+  Scenario: Wrong password
+    Given I am on "Home Page"
+    When I log as user "blibloblu" with password "badPassword"
+    Then login fails
+    And I am on "Home Page"
+
   Scenario: Login successful
-    Given I am on my "Home page"
-    When I use "Coucou"
-    And I click on "login button"
-    Then I am redirected to the "Discover page"
+    Given I am on "Home Page"
+    When I log as user "blibloblu" with password "to0secUr3"
+    Then login succeeds
+    And I am on "Discover"
+
+  Scenario: User unknown
+    Given I am on "Home Page"
+    When I log as user "userUnknown" with password "whatever"
+    Then login fails
+    And I am on "Home Page"
